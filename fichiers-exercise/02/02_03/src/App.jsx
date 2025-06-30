@@ -3,13 +3,21 @@ import React, { useState, useEffect } from 'react';
 
 // Presenter (dumb component)
 const PostsList = ({ posts, loading }) => {
-
   return (
     <ul>
-      {/* liste d'articles  */}
+      {loading ? (
+        <li>Chargement des données...</li>
+      ) : (
+        posts.map(post => (
+          <li key={post.id}>
+            {post.title}
+          </li>
+        ))
+      )}
     </ul>
   );
 };
+
 
 
 // Container (smart component)
@@ -28,13 +36,7 @@ const PostsContainer = () => {
   }, []);
 
   // composant de présentation (presenter)
-  return <ul>
-    {posts.map(post => (
-      <li key={post.id}>
-        {post.title}
-      </li>
-    ))}
-  </ul>
+  return <PostsList posts={posts} loading={loading} />;
 };
 const App = () => {
   return <PostsContainer />;
