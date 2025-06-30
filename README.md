@@ -43,7 +43,9 @@ Afin de résoudre ce souci, vous devez :
 
 **Nom du formateur** 
 
-Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
+**Sandy Ludosky**
+
+Retrouvez mes autres formations sur [LinkedIn Learning](https://www.linkedin.com/learning/instructors/sandy-ludosky).
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 [lil-course-url]: https://www.linkedin.com
