@@ -12,7 +12,7 @@ const PostsList = ({ posts, loading }) => {
 };
 
 
-// Contener (smart component)
+// Container (smart component)
 const PostsContainer = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,6 +28,13 @@ const PostsContainer = () => {
   }, []);
 
   // composant de présentation (presenter)
+  return <ul>
+    {posts.map(post => (
+      <li key={post.id}>
+        {post.title}
+      </li>
+    ))}
+  </ul>
 };
 const App = () => {
   return <PostsContainer />;
