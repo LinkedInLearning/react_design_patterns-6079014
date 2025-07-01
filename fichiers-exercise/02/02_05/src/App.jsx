@@ -18,6 +18,7 @@ const PostsList = ({ posts, loading }) => {
   );
 };
 
+
 // Table Component
 const TableComponent = ({ posts }) => (
   <table style={{ borderCollapse: 'collapse', width: '100%' }}>
@@ -28,7 +29,7 @@ const TableComponent = ({ posts }) => (
       </tr>
     </thead>
     <tbody>
-      {/* articles here */}
+      {/* posts here */}
     </tbody>
   </table>
 );
@@ -53,6 +54,7 @@ const CardComponent = ({ posts }) => (
     ))}
   </div>
 );
+
 
 // Container (smart component)
 const PostsContainer = () => {
