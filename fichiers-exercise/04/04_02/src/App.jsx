@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 // créer un objet de contexte
+const ToggleContext = createContext();
 
 
 // créer le composant Provider
