@@ -9,13 +9,42 @@ const Heading2Component = ({ message }) => {
   return <h2>{message}</h2>;
 };
 
+const MessageComponent = ({ message }) => {
+  return <p>{message}</p>;
+}
 
+const CodeBlockComponent = ({ message }) => {
+  return <h2>Exemple :</h2>;
+}
 //HOC
-const withMessage = (WrappedComponent, message = "Hello from HOC!") => {
-  return function WithMessage(props) {
+const withTitle = (WrappedComponent, message = "Hello from HOC!") => {
+  return function WithTitle(props) {
     return <WrappedComponent {...props} message={message} />;
   };
 };
+
+const withMessage = (WrappedComponent, message = "Hello from HOC!") => {
+  return function WithMessage(props) {
+    return (
+      <>
+        <hr />
+        <WrappedComponent {...props} message={message} />
+      </>
+    );
+  };
+};
+
+const exempleCode = `const withMessage = (WrappedComponent, message = "Hello from HOC!") => {
+  return function WithMessage(props) {
+    return (
+      <>
+        <hr />
+        <WrappedComponent {...props} message={message} />
+      </>
+    );
+  };
+};`
+
 
 const withCodeBlock = (WrappedComponent, code) => {
   return function WithCodeBlock(props) {
@@ -40,14 +69,17 @@ const withCodeBlock = (WrappedComponent, code) => {
 };
 
 // Utilisation du HOC : Composant amélioré
-const EnhancedComponent = withMessage(Heading1Component, "Comprendre les HOC");
-const EnhancedComponent2 = withMessage(Heading2Component, "Définition des HOC");
-
+const EnhancedComponent = withTitle(Heading1Component, "Comprendre les HOC");
+const EnhancedComponent2 = withTitle(Heading2Component, "Définition des HOC");
+const EnhancedComponent3 = withMessage(MessageComponent, "Un HOC est une fonction qui prend un composant et retourne un nouveau composant.");
+const ExempleComponent = withCodeBlock(CodeBlockComponent, exempleCode);
 const App = () => {
   return (
     <div>
       <EnhancedComponent />
       <EnhancedComponent2 />
+      <EnhancedComponent3 />
+      <ExempleComponent />
     </div>
   );
 };
