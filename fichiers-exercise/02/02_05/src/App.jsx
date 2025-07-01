@@ -19,7 +19,7 @@ const PostsList = ({ posts, loading }) => {
 };
 
 // Table Component
-const TableComponent = ({ posts }) => (
+const TableComponent = ({ posts, loading }) => (
   <table style={{ borderCollapse: 'collapse', width: '100%' }}>
     <thead>
       <tr>
@@ -28,7 +28,18 @@ const TableComponent = ({ posts }) => (
       </tr>
     </thead>
     <tbody>
-      {/* articles here */}
+      {loading ? (
+        <tr>
+          <td colSpan="2" style={{ textAlign: 'center' }}>Chargement des données...</td>
+        </tr>
+      ) : (
+        posts.map(post => (
+          <tr key={post.id}>
+            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{post.id}</td>
+            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{post.title}</td>
+          </tr>
+        ))
+      )}
     </tbody>
   </table>
 );
@@ -70,7 +81,7 @@ const PostsContainer = () => {
   }, []);
 
   // composant de présentation (presenter)
-  return <PostsList posts={posts} loading={loading} />;
+  return <TableComponent posts={posts} loading={loading} />;
 };
 const App = () => {
   return <PostsContainer />;
