@@ -1,4 +1,5 @@
 import { useTheme } from './context.jsx';
+import { useOnlineStatus } from './statusContext.jsx';
 
 const StatusBar = () => {
   const { isOnline, goOnline, goOffline } = useOnlineStatus();
@@ -25,7 +26,16 @@ const StatusBar = () => {
 
 const Content = () => {
   const { themeStyle, theme: isDark, toggleTheme } = useTheme();
+  const { isOnline } = useOnlineStatus();
 
+  if (!isOnline) {
+    return (
+      <div style={{ width: '100%', textAlign: 'center', padding: '20px' }}>
+        <h1>Vous êtes hors ligne</h1>
+        <p>Veuillez vous connecter pour accéder au contenu de l'application</p>
+      </div>
+    );
+  }
   return (
     <div style={{ width: '100%' }}>
       <div style={themeStyle}>
