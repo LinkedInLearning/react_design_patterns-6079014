@@ -1,5 +1,5 @@
 
-import { createContext, useState, useMemo } from 'react';
+import { createContext, useState, useMemo, useContext } from 'react';
 
 // créer un objet de contexte
 export const ThemeContext = createContext();
@@ -16,6 +16,7 @@ const ThemeProvider = ({ children }) => {
       backgroundColor: isThemeDark === 'dark' ? '#222' : '#f9f9f9',
       color: isThemeDark === 'dark' ? '#fff' : '#000',
       height: '100vh',
+      width: '100vw',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -30,5 +31,14 @@ const ThemeProvider = ({ children }) => {
     </ThemeContext>
   );
 }
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
+}
+
 
 export default ThemeProvider;
