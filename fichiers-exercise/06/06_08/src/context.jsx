@@ -1,5 +1,5 @@
 
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useContext } from 'react';
 
 export const Context = createContext();
 
@@ -28,6 +28,14 @@ const Provider = ({ children }) => {
             {children}
         </Context>
     );
+}
+
+export const useCustomHook = () => {
+    const context = useContext(Context);
+    if (!context) {
+        throw new Error('useCustomeHook must be used within a Provider');
+    }
+    return context;
 }
 
 export default Provider;

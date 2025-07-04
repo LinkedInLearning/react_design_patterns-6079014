@@ -1,6 +1,6 @@
 
-import { useMemo, useContext } from 'react';
-import { Context } from './context.jsx';
+import { useMemo } from 'react';
+import { useCustomHook } from './context.jsx';
 
 const style = {
   width: "100vw",
@@ -14,7 +14,7 @@ const style = {
 
 
 function Count() {
-  const { increment, decrement } = useContext(Context);
+  const { increment, decrement } = useCustomHook();
   return (
     <div>
       <button onClick={increment}>
@@ -28,7 +28,7 @@ function Count() {
 
 // exemple avec useState
 function Counter() {
-  const { state } = useContext(Context);
+  const { state } = useCustomHook();
   return (
     <>
       <h2>Counter with useState</h2>
@@ -39,7 +39,7 @@ function Counter() {
 }
 
 function App() {
-  const { state, toggleTheme } = useContext(Context);
+  const { state, toggleTheme } = useCustomHook();
   const isDark = useMemo(() => state.theme ? 'Dark' : 'Light', [state.theme]);
 
   const themeStyle = useMemo(() => {
