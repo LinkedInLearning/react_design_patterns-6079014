@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { useState } from 'react';
+import { useMemo, useReducer } from 'react';
+
 
 const style = {
   width: "100vw",
@@ -12,37 +12,51 @@ const style = {
 }
 
 
+const Count = ({ count, increment, decrement }) => {
+  return (<div>
+    <button onClick={increment}>
+      Increment
+    </button> &nbsp;
+    <button onClick={decrement}>
+      Decrement
+    </button>
+  </div>)
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { ...state, count: state.count + 1 };
+    case 'decrement':
+      return { ...state, count: state.count - 1 };
+    case 'toggleTheme':
+      return { ...state, theme: !state.theme };
+    default:
+      throw new Error();
+  }
+}
+
 // exemple avec useState
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count - 1);
-
+function Counter({ increment, decrement, count }) {
   return (
-
     <>
       <h2>Counter with useState</h2>
       <p>Count: {count}</p>
-      <div>
-        <button onClick={increment}>
-          Increment
-        </button> &nbsp;
-        <button onClick={decrement}>
-          Decrement
-        </button>
-      </div>
+      <Count increment={increment} decrement={decrement} />
     </>
 
   );
 }
 
 function App() {
-  const toggleTheme = () => setTheme(prevTheme => !prevTheme);
-  const [theme, setTheme] = useState(false);
+  const [state, dispatch] = useReducer(reducer, { count: 0, theme: false });
+
+  const increment = () => dispatch({ type: 'increment' });
+  const decrement = () => dispatch({ type: 'decrement' });
+  const toggleTheme = () => dispatch({ type: 'toggleTheme' });
 
   const themeStyle = useMemo(() => {
-    const isThemeDark = theme ? 'light' : 'dark';
+    const isThemeDark = state.theme ? 'light' : 'dark';
     return {
       backgroundColor: isThemeDark === 'dark' ? '#222' : '#f9f9f9',
       color: isThemeDark === 'dark' ? '#fff' : '#000',
@@ -54,9 +68,9 @@ function App() {
       justifyContent: 'center',
       transition: 'all 0.3s ease',
     };
-  }, [theme])
+  }, [state.theme])
 
-  const isDark = useMemo(() => theme ? 'Dark' : 'Light', [theme]);
+  const isDark = useMemo(() => state.theme ? 'Dark' : 'Light', [state.theme]);
 
   return (
     <>
@@ -67,7 +81,7 @@ function App() {
       <div style={themeStyle}>
         <div style={style}>
           <h1>Counter Example</h1>
-          <Counter />
+          <Counter increment={increment} decrement={decrement} count={state.count} />
         </div>
       </div>
     </>
