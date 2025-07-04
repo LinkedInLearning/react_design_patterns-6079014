@@ -1,17 +1,28 @@
-import React, { useState, useMemo } from 'react';
+import { useReducer, useMemo } from 'react';
+
+function themeReducer(state, action) {
+  switch (action.type) {
+    case 'toggle':
+      return {
+        theme: !state.theme
+      }
+    default:
+      return state;
+  }
+}
 
 
 const ThemeToggleApp = () => {
-  const [theme, setTheme] = useState(false);
+  const [state, dispatch] = useReducer(themeReducer, { theme: false });
 
-  const toggleTheme = () => setTheme(prevTheme => !prevTheme);
+  const toggleTheme = () => dispatch({ type: 'toggle' });
 
-  const isDark = useMemo(() => theme ? "Clair" : "Sombre", [theme]);
+  const isDark = useMemo(() => state.theme ? "Clair" : "Sombre", [state.theme]);
 
   const themeStyles = useMemo(() => {
     return {
-      backgroundColor: theme ? '#222' : '#f9f9f9',
-      color: theme ? '#fff' : '#000',
+      backgroundColor: state.theme ? '#222' : '#f9f9f9',
+      color: state.theme ? '#fff' : '#000',
       height: '100vh',
       width: '100vw',
       display: 'flex',
@@ -20,7 +31,7 @@ const ThemeToggleApp = () => {
       justifyContent: 'center',
       transition: 'all 0.3s ease'
     }
-  }, [theme])
+  }, [state.theme])
 
   return (
     <div style={themeStyles}>
