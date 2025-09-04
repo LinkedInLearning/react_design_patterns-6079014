@@ -1,12 +1,12 @@
-# Nom final de la formation
+# React : Design Patterns
 
-Ce dossier Repository est lié au cours `Nom final de la formation`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
+Ce dossier Repository est lié au cours `React : Design Patterns`. Le cours entier est disponible sur [LinkedIn Learning][lil-course-url].
 
 ![Nom final de la formation][lil-thumbnail-url] 
 
 Ce cours est intégré à GitHub Codespaces, un environnement de développement instantané « dans le nuage » qui offre toutes les fonctionnalités de votre IDE préféré sans nécessiter de configuration sur une machine locale. Avec Codespaces, vous pouvez vous exercer à partir de n'importe quelle machine, à tout moment, tout en utilisant un outil que vous êtes susceptible de rencontrer sur votre lieu de travail. Consultez la vidéo "Utiliser Codespaces sur GitHub" pour savoir comment démarrer.    
 
-DESCRIPTION DE LA FORMATION
+Cette formation s’adresse aux développeurs web souhaitant améliorer la structure de leurs applications React grâce aux design patterns. Aux côtés de Sandy Ludosky, vous apprendrez à identifier, utiliser et combiner les principaux modèles de conception pour organiser, partager et maintenir efficacement votre code. Vous verrez comment appliquer ces patterns à travers des exemples concrets : séparation logique/présentation, composants d’ordre supérieur (HOC), hooks personnalisés, API de contexte, reducers, et gestion d’erreurs. À l’issue du cours, vous saurez appliquer les meilleures pratiques pour rendre vos projets React plus modulaires, évolutifs et robustes.
 
 ## Instructions
 
@@ -30,15 +30,6 @@ Afin de résoudre ce souci, vous devez :
 	Rajouter les changements au git en utilisant la commande : git add .
 	Enregistrer les changements avec la commande : git commit -m "message de votre choix"
 
-
-## Installation
-
-1. Pour utiliser ces fichiers d’exercice, vous avez besoin de : 
-   - [Liste des logiciels/dépendances utiles à la formation] 
-2. Clonez ce dossier Repository sur votre machine locale (Mac), CMD (Windows), ou sur un outil GUI tel que SourceTree. 
-3. [Instructions spécifiques au cours] 
-
-
 ### Formateur
 
 **Nom du formateur** 
@@ -48,8 +39,8 @@ Afin de résoudre ce souci, vous devez :
 Retrouvez mes autres formations sur [LinkedIn Learning](https://www.linkedin.com/learning/instructors/sandy-ludosky).
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
-[lil-course-url]: https://www.linkedin.com
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQG0eDHsyOSqTA/learning-public-crop_675_1200/B4EZVdqqdwHUAY-/0/1741033220778?e=2147483647&v=beta&t=FxUDo6FA8W8CiFROwqfZKL_mzQhYx9loYLfjN-LNjgA
-[lil-URL-trainer]: https://
+[lil-course-url]: https://www.linkedin.com/learning/react-design-patterns-26258026/bienvenue-dans-react-design-patterns
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQHBiT-clwLNHQ/learning-public-crop_675_1200/B4EZkU1HJbHoAk-/0/1756991091597?e=2147483647&v=beta&t=vr0VEn3IPKT6ZiNSiiePc6PbQMuwb0I_QKodur0jutY
+[lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sandy-ludosky
 
 [1]: # (End of FR-Instruction ###############################################################################################)
