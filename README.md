@@ -32,7 +32,7 @@ Afin de résoudre ce souci, vous devez :
 
 ### Formateur
 
-**Nom du formateur** 
+**Nom de la formatrice** 
 
 **Sandy Ludosky**
 
